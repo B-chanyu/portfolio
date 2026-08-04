@@ -146,7 +146,7 @@ export default function Home() {
         <div className="masthead-grid" aria-hidden="true" />
         <div className="masthead-content">
           <p>FRONTEND-FOCUSED FULL-STACK DEVELOPER</p>
-          <h1>Chanyu’s Portfolio</h1>
+          <h1>Chanyu&apos;s Portfolio</h1>
           <span className="masthead-rule" />
           <h2>개발부터 적용까지<br />다양한 분야의 개발을 진행합니다.</h2>
           <a href="#about" className="scroll-button">더 알아보기 ↓</a>

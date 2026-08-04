@@ -8,10 +8,10 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Chanyu’s Portfolio | Full-stack Developer",
+  title: "Chanyu's Portfolio | Full-stack Developer",
   description: "소개, 기술, 아카이브, 프로젝트와 커리어를 담은 프론트엔드 중심 풀스택 개발자 포트폴리오",
   openGraph: {
-    title: "Chanyu’s Portfolio",
+    title: "Chanyu's Portfolio",
     description: "Medical Imaging · DICOM/PACS · Edge AI",
     url: siteUrl,
     type: "website",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chanyu’s Portfolio",
+    title: "Chanyu's Portfolio",
     description: "Medical Imaging · DICOM/PACS · Edge AI",
     images: [`${basePath}/og.png`],
   },
