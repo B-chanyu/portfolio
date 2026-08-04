@@ -1,27 +1,59 @@
 const skillGroups = [
   {
     title: "Language",
-    items: ["TypeScript", "JavaScript", "Python", "HTML", "CSS"],
+    iconClass: "fi fi-rr-code-simple",
+    items: [
+      { name: "TypeScript", tone: "blue" },
+      { name: "JavaScript", tone: "yellow" },
+      { name: "Python", tone: "steel" },
+    ],
   },
   {
     title: "Frontend",
-    items: ["React", "Redux", "Zustand", "React Query", "Cornerstone3D", "Canvas · SVG"],
+    iconClass: "fi fi-rr-browser",
+    items: [
+      { name: "React", tone: "navy" },
+      { name: "HTML5 · CSS3", tone: "orange" },
+      { name: "Redux", tone: "purple" },
+      { name: "Zustand", tone: "brown" },
+      { name: "React Query", tone: "pink" },
+      { name: "Cornerstone3D", tone: "indigo" },
+      { name: "Canvas · SVG", tone: "violet" },
+    ],
   },
   {
-    title: "Application",
-    items: ["Electron", "PWA", "Node.js", "Playwright"],
-  },
-  {
-    title: "Data · Infra",
-    items: ["MariaDB · MySQL", "MinIO", "Apache", "Cloudflare Tunnel", "Git · GitHub"],
+    title: "Backend · Data",
+    iconClass: "fi fi-rr-database",
+    items: [
+      { name: "Node.js", tone: "green" },
+      { name: "MariaDB · MySQL", tone: "teal" },
+      { name: "MinIO", tone: "red" },
+    ],
   },
   {
     title: "AI · Medical",
-    items: ["PyTorch", "OpenCV", "OCR", "DICOM", "PACS", "Hailo"],
+    iconClass: "fi fi-rr-brain-circuit",
+    items: [
+      { name: "PyTorch", tone: "orange" },
+      { name: "OpenCV", tone: "blue" },
+      { name: "OCR", tone: "pink" },
+      { name: "DICOM", tone: "navy" },
+      { name: "PACS", tone: "indigo" },
+      { name: "Hailo", tone: "green" },
+    ],
   },
   {
-    title: "AI Tools",
-    items: ["Cursor", "Claude", "Codex", "Kiro", "ChatGPT Deep Research"],
+    title: "Platform · Tools",
+    iconClass: "fi fi-rr-tools",
+    items: [
+      { name: "Electron", tone: "violet" },
+      { name: "PWA", tone: "blue" },
+      { name: "Apache", tone: "red" },
+      { name: "Cloudflare Tunnel", tone: "orange" },
+      { name: "Playwright", tone: "green" },
+      { name: "Git · GitHub", tone: "navy" },
+      { name: "Cursor · Claude · Codex", tone: "black" },
+    ],
   },
 ];
 
@@ -68,7 +100,7 @@ const projects = [
     no: "03",
     type: "SIDE PROJECT",
     title: "BEBEU Work PWA",
-    period: "실제 매장 운영 프로젝트",
+    period: "2026.06.01 ~",
     description:
       "아기용품 세탁 매장의 주문 접수, 작업 사진, 고객 공유, 근태와 게시 업무를 모바일에서 관리하는 현장 운영 도구",
     role: "Product · Full-stack · Operation",
@@ -86,12 +118,12 @@ const projects = [
 ];
 
 const introItems = [
-  ["직무", "프론트엔드 중심 풀스택 개발자"],
-  ["경력", "㈜인비즈 · 2024.10 — 2026.08"],
-  ["도메인", "의료영상 · Edge AI · 현장 운영"],
-  ["주요 경험", "DICOM/PACS · Electron · PWA"],
-  ["개발 범위", "화면 · AI 연동 · 데이터 · 배포"],
-  ["연구", "CT 팬텀 공간분해능 Q-score"],
+  { label: "이름", value: "방찬유", iconClass: "fi fi-rr-user" },
+  { label: "생년월일", value: "99.09.07", iconClass: "fi fi-rr-calendar" },
+  { label: "위치", value: "광주광역시 북구", iconClass: "fi fi-rr-marker" },
+  { label: "연락처", value: "010-9148-6553", iconClass: "fi fi-rr-phone-call" },
+  { label: "이메일", value: "cksdb0907@naver.com", iconClass: "fi fi-rr-envelope" },
+  { label: "학력", value: "전남대학교\n지능정보융합학과 석사과정 재학 중", iconClass: "fi fi-rr-graduation-cap" },
 ];
 
 export default function Home() {
@@ -100,11 +132,11 @@ export default function Home() {
       <header className="site-header">
         <a className="logo" href="#top">PORTFOLIO</a>
         <nav aria-label="포트폴리오 메뉴">
-          <a href="#about">소개</a>
-          <a href="#skills">스킬</a>
-          <a href="#archive">아카이브</a>
-          <a href="#projects">프로젝트</a>
-          <a href="#career">커리어</a>
+          <a href="#about">ABOUT</a>
+          <a href="#skills">SKILLS</a>
+          <a href="#archive">ARCHIVING</a>
+          <a href="#projects">PROJECTS</a>
+          <a href="#career">CAREER</a>
         </nav>
       </header>
 
@@ -112,40 +144,46 @@ export default function Home() {
         <div className="masthead-grid" aria-hidden="true" />
         <div className="masthead-content">
           <p>FRONTEND-FOCUSED FULL-STACK DEVELOPER</p>
-          <h1>개발자 포트폴리오</h1>
+          <h1>찬유의 포트폴리오</h1>
           <span className="masthead-rule" />
-          <h2>의료영상과 현장 업무를<br />실제로 작동하는 제품으로 만듭니다.</h2>
+          <h2>개발부터 적용까지<br />다양한 분야의 개발을 진행합니다.</h2>
           <a href="#about" className="scroll-button">더 알아보기 ↓</a>
         </div>
       </section>
 
       <section className="section about" id="about">
         <div className="section-inner">
-          <h2 className="section-title">ABOUT ME</h2>
-          <p className="lead">
-            React·TypeScript 기반 화면부터 Electron, Python AI 연동, DICOM/PACS와 데이터 저장 환경까지 제품 단위로 개발해 왔습니다.
-          </p>
-          <div className="about-grid">
-            {introItems.map(([label, value]) => (
-              <div className="about-item" key={label}>
-                <span className="about-icon" aria-hidden="true">{label.slice(0, 1)}</span>
-                <div><strong>{label}</strong><p>{value}</p></div>
-              </div>
-            ))}
+          <h2 className="section-title about-title"><i className="fi fi-rr-link" aria-hidden="true" />ABOUT ME</h2>
+          <div className="about-content">
+            <figure className="profile-photo">
+              <img src="/about/profile.jpg" alt="방찬유 프로필 사진" />
+            </figure>
+            <div className="about-grid">
+              {introItems.map((item) => (
+                <div className="about-item" key={item.label}>
+                  <i className={`about-icon ${item.iconClass}`} aria-hidden="true" />
+                  <div><strong>{item.label}</strong><p>{item.value}</p></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="section skills" id="skills">
         <div className="section-inner">
-          <h2 className="section-title">SKILLS</h2>
-          <p className="section-description">프로젝트에서 직접 사용하고 설명할 수 있는 기술을 중심으로 정리했습니다.</p>
-          <div className="skill-grid">
+          <h2 className="section-title skills-title"><i className="fi fi-rr-link" aria-hidden="true" />SKILLS</h2>
+          <div className="skill-panel">
             {skillGroups.map((group) => (
-              <article className="skill-card" key={group.title}>
-                <div className="skill-card-header"><span>{group.title.slice(0, 2).toUpperCase()}</span><h3>{group.title}</h3></div>
-                <div className="skill-tags">{group.items.map((item) => <span key={item}>{item}</span>)}</div>
-              </article>
+              <div className="skill-row" key={group.title}>
+                <div className="skill-category">
+                  <i className={`skill-row-icon ${group.iconClass}`} aria-hidden="true" />
+                  <h3>{group.title}</h3>
+                </div>
+                <div className="skill-tags">
+                  {group.items.map((item) => <span className={`tone-${item.tone}`} key={item.name}>{item.name}</span>)}
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -153,25 +191,13 @@ export default function Home() {
 
       <section className="section archive" id="archive">
         <div className="section-inner">
-          <h2 className="section-title light">ARCHIVING</h2>
-          <div className="archive-grid">
+          <h2 className="section-title light archive-title"><i className="fi fi-rr-link" aria-hidden="true" />ARCHIVING</h2>
+          <div className="archive-grid single">
             <a className="archive-card" href="https://github.com/bebeu-app" target="_blank" rel="noreferrer">
-              <span className="archive-kicker">GITHUB ORGANIZATION</span>
+              <span className="github-wordmark"><i className="fi fi-brands-github" aria-hidden="true" /> GitHub</span>
               <h3>github.com/bebeu-app</h3>
-              <p>사이드 프로젝트의 소스 코드와 버전 관리 기록</p>
-              <strong>방문하기 ↗</strong>
-            </a>
-            <a className="archive-card" href="https://github.com/bebeu-app/bebeu_web" target="_blank" rel="noreferrer">
-              <span className="archive-kicker">SOURCE REPOSITORY</span>
-              <h3>BEBEU Work PWA</h3>
-              <p>실제 매장 운영 도구의 기능별 소스와 빌드 구조</p>
-              <strong>코드 보기 ↗</strong>
-            </a>
-            <a className="archive-card internal" href="#research">
-              <span className="archive-kicker">MASTER&apos;S RESEARCH</span>
-              <h3>CT Q-score Research</h3>
-              <p>의료영상 처리와 정량 검증 결과 요약</p>
-              <strong>연구 보기 ↓</strong>
+              <p>사이드 프로젝트 소스 코드와 버전 관리 저장소</p>
+              <strong>GitHub 방문하기 ↗</strong>
             </a>
           </div>
         </div>
@@ -180,12 +206,12 @@ export default function Home() {
       <section className="section projects" id="projects">
         <div className="section-inner wide">
           <h2 className="section-title">PROJECTS</h2>
-          <p className="section-description center">요구사항, 구현 내용과 결과가 드러나는 프로젝트를 선별했습니다.</p>
-          <div className="project-stack">
-            {projects.map((project) => (
+          <p className="section-description center">실제 매장 업무를 개선하기 위해 개발하고 운영한 사이드 프로젝트입니다.</p>
+          <div className="project-stack single">
+            {projects.filter((project) => project.type === "SIDE PROJECT").map((project) => (
               <article className="project-card" key={project.title}>
                 <div className="project-aside">
-                  <span className="project-number">{project.no}</span>
+                  <span className="project-number">01</span>
                   <span className="project-type">{project.type}</span>
                   <p>{project.period}</p>
                 </div>
@@ -230,24 +256,76 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="research" id="research">
-            <div className="research-heading">
-              <span>MASTER&apos;S RESEARCH</span>
-              <h3>CT 팬텀 영상 기반<br />공간분해능 Q-score 개발</h3>
-              <p>DICOM 영상의 ROI와 점군을 자동 검출하고 밝기·형태·배열 특성을 결합해 육안 평가를 보조하는 정량 지표를 설계했습니다.</p>
+          <details className="research-disclosure" id="research">
+            <summary>
+              <span>ACADEMIC PAPER</span>
+              <strong>CT 팬텀 영상 기반 공간분해능 Q-score 개발</strong>
+              <i className="fi fi-rr-angle-small-down" aria-hidden="true" />
+            </summary>
+            <div className="research-disclosure-body">
+              <div className="research">
+                <div className="research-heading">
+                  <span>RESEARCH OVERVIEW</span>
+                  <h3>육안 판정을 정량 평가로 전환</h3>
+                  <p>CT 팬텀의 점 패턴을 육안으로 판정하던 과정을 자동화하기 위해 DICOM 영상에서 ROI와 5점 점군을 검출하고, 밝기·형태·배열 특성을 결합한 정량 지표를 설계했습니다.</p>
+                </div>
+                <div className="research-metrics">
+                  <div><span>ROC-AUC</span><strong>0.989</strong></div>
+                  <div><span>PR-AP</span><strong>0.900</strong></div>
+                  <div><span>ACCURACY</span><strong>94.7%</strong></div>
+                  <div><span>BALANCED ACC.</span><strong>96.1%</strong></div>
+                </div>
+              </div>
+
+              <div className="research-method">
+                <div className="research-method-heading">
+                  <span>METHOD</span>
+                  <h3>영상 전처리부터 임계값 판정까지</h3>
+                  <p>공간분해능 DICOM 376장을 대상으로 동일 영상이 학습과 검증에 중복되지 않도록 영상 단위 GroupKFold를 적용했습니다.</p>
+                </div>
+                <ol className="research-steps">
+                  <li><span>01</span><div><strong>ROI 추출 및 정규화</strong><p>공간분해능 점 패턴 영역을 추출하고 512×512 크기로 정규화</p></div></li>
+                  <li><span>02</span><div><strong>점 후보 검출</strong><p>DoG를 적용해 배경과 구분되는 검은 점 후보를 자동 검출</p></div></li>
+                  <li><span>03</span><div><strong>5점 점군 선별</strong><p>간격·반지름·배열 조건이 일정한 5개 점군만 분석 대상으로 선택</p></div></li>
+                  <li><span>04</span><div><strong>특징 추출</strong><p>밝기 대비와 변화량, 반지름 변동, 중심점 일렬성 오차를 계산</p></div></li>
+                  <li><span>05</span><div><strong>Q-score 산출</strong><p>중앙값·IQR 기반으로 정규화한 특징을 가중 결합해 점수 산출</p></div></li>
+                  <li><span>06</span><div><strong>임계값 판정</strong><p>Q-score 임계값으로 0.75 mm와 1.00 mm 공간분해능을 분류</p></div></li>
+                </ol>
+
+                <figure className="research-wide-visual">
+                  <img src="/research/roi-extraction.png" alt="원본 CT 팬텀에서 공간분해능 ROI와 5점 점군을 추출하는 과정" />
+                  <figcaption>원본 CT 팬텀 → 공간분해능 ROI 추출 → 5점 점군 선별</figcaption>
+                </figure>
+
+                <div className="research-gallery">
+                  <figure className="research-gallery-main">
+                    <img src="/research/qscore-method.png" alt="밝기와 형상 특징을 결합한 Q-score 산출 방법" />
+                    <figcaption>밝기 대비·변화량과 형상 안정성을 결합한 Q-score 설계</figcaption>
+                  </figure>
+                  <div className="research-result-visuals">
+                    <figure>
+                      <img src="/research/qscore-distribution.png" alt="0.75 mm와 1.00 mm Q-score 분포 비교 그래프" />
+                      <figcaption>등급별 Q-score 분포</figcaption>
+                    </figure>
+                    <figure>
+                      <img src="/research/roc-curve.png" alt="Q-score 분류 성능 ROC 곡선" />
+                      <figcaption>ROC-AUC 0.989</figcaption>
+                    </figure>
+                  </div>
+                </div>
+
+                <div className="research-result-note">
+                  <span>RESULT</span>
+                  <p>균형형 임계값 기준 정확도 94.7%, 균형 정확도 96.1%, 0.75 mm 재현율 98.1%를 확인해 육안 평가를 보조할 수 있는 정량적 판정 가능성을 제시했습니다.</p>
+                </div>
+              </div>
             </div>
-            <div className="research-metrics">
-              <div><span>ROC-AUC</span><strong>0.989</strong></div>
-              <div><span>PR-AP</span><strong>0.900</strong></div>
-              <div><span>ACCURACY</span><strong>94.7%</strong></div>
-              <div><span>BALANCED ACC.</span><strong>96.1%</strong></div>
-            </div>
-          </div>
+          </details>
         </div>
       </section>
 
       <footer>
-        <div><strong>DEVELOPER PORTFOLIO</strong><p>의료영상과 현장 운영 제품을 구현한 프론트엔드 중심 풀스택 개발자</p></div>
+        <div><strong>DEVELOPER PORTFOLIO</strong><p>개발부터 적용까지 다양한 분야의 개발을 진행합니다.</p><p className="icon-credit">Uicons by <a href="https://www.flaticon.com/uicons" target="_blank" rel="noreferrer">Flaticon</a></p></div>
         <a href="#top">TOP ↑</a>
       </footer>
     </main>
