@@ -208,7 +208,6 @@ export default function Home() {
       <section className="section projects" id="projects">
         <div className="section-inner wide">
           <h2 className="section-title">PROJECTS</h2>
-          <p className="section-description center">실제 매장 업무를 개선하기 위해 개발하고 운영한 사이드 프로젝트입니다.</p>
           <div className="project-stack single">
             {projects.filter((project) => project.type === "SIDE PROJECT").map((project) => (
               <article className="project-card" key={project.title}>
