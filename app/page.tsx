@@ -1,3 +1,5 @@
+const assetPath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const skillGroups = [
   {
     title: "Language",
@@ -156,7 +158,7 @@ export default function Home() {
           <h2 className="section-title about-title"><i className="fi fi-rr-link" aria-hidden="true" />ABOUT ME</h2>
           <div className="about-content">
             <figure className="profile-photo">
-              <img src="/about/profile.jpg" alt="방찬유 프로필 사진" />
+              <img src={`${assetPath}/about/profile.jpg`} alt="방찬유 프로필 사진" />
             </figure>
             <div className="about-grid">
               {introItems.map((item) => (
@@ -293,22 +295,22 @@ export default function Home() {
                 </ol>
 
                 <figure className="research-wide-visual">
-                  <img src="/research/roi-extraction.png" alt="원본 CT 팬텀에서 공간분해능 ROI와 5점 점군을 추출하는 과정" />
+                  <img src={`${assetPath}/research/roi-extraction.png`} alt="원본 CT 팬텀에서 공간분해능 ROI와 5점 점군을 추출하는 과정" />
                   <figcaption>원본 CT 팬텀 → 공간분해능 ROI 추출 → 5점 점군 선별</figcaption>
                 </figure>
 
                 <div className="research-gallery">
                   <figure className="research-gallery-main">
-                    <img src="/research/qscore-method.png" alt="밝기와 형상 특징을 결합한 Q-score 산출 방법" />
+                    <img src={`${assetPath}/research/qscore-method.png`} alt="밝기와 형상 특징을 결합한 Q-score 산출 방법" />
                     <figcaption>밝기 대비·변화량과 형상 안정성을 결합한 Q-score 설계</figcaption>
                   </figure>
                   <div className="research-result-visuals">
                     <figure>
-                      <img src="/research/qscore-distribution.png" alt="0.75 mm와 1.00 mm Q-score 분포 비교 그래프" />
+                      <img src={`${assetPath}/research/qscore-distribution.png`} alt="0.75 mm와 1.00 mm Q-score 분포 비교 그래프" />
                       <figcaption>등급별 Q-score 분포</figcaption>
                     </figure>
                     <figure>
-                      <img src="/research/roc-curve.png" alt="Q-score 분류 성능 ROC 곡선" />
+                      <img src={`${assetPath}/research/roc-curve.png`} alt="Q-score 분류 성능 ROC 곡선" />
                       <figcaption>ROC-AUC 0.989</figcaption>
                     </figure>
                   </div>
