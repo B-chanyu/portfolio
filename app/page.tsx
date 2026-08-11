@@ -195,9 +195,9 @@ export default function Home() {
         <div className="section-inner">
           <h2 className="section-title light archive-title"><i className="fi fi-rr-link" aria-hidden="true" />ARCHIVING</h2>
           <div className="archive-grid single">
-            <a className="archive-card" href="https://github.com/bebeu-app" target="_blank" rel="noreferrer">
+            <a className="archive-card" href="https://github.com/B-chanyu/bebeu_web" target="_blank" rel="noreferrer">
               <span className="github-wordmark"><i className="fi fi-brands-github" aria-hidden="true" /> GitHub</span>
-              <h3>github.com/bebeu-app</h3>
+              <h3>github.com/B-chanyu/bebeu_web</h3>
               <p>사이드 프로젝트 소스 코드와 버전 관리 저장소</p>
               <strong>GitHub 방문하기 ↗</strong>
             </a>
