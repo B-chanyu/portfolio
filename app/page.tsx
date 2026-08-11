@@ -32,7 +32,6 @@ const skillGroups = [
     iconClass: "fi fi-rr-database",
     items: [
       { name: "Node.js", tone: "green" },
-      { name: "Flask", tone: "black" },
       { name: "MariaDB · MySQL", tone: "teal" },
       { name: "MinIO", tone: "red" },
     ],
@@ -60,7 +59,7 @@ const skillGroups = [
       { name: "Apache", tone: "red" },
       { name: "Cloudflare Tunnel", tone: "orange" },
       { name: "Playwright", tone: "green" },
-      { name: "Google Cloud", tone: "blue" },
+      { name: "AWS", tone: "orange" },
       { name: "Agora API", tone: "teal" },
       { name: "Raspberry Pi · Arduino", tone: "red" },
       { name: "Git · GitHub", tone: "navy" },
@@ -112,20 +111,20 @@ const projects = [
     no: "01",
     type: "TEAM PROJECT",
     title: "SKRRR",
-    period: "2024.03 — 2024.09 교육과정 내",
+    period: "2024.08.05 — 2024.09.12",
     description:
       "영상 통화 중 표정과 음성을 분석해 감정 변화, 호감도와 매너 점수를 제공하는 모바일 데이팅 서비스",
     role: "Team Lead · Video Call · Backend · Infra",
     points: [
-      "5인 팀의 일정·역할·기능 통합을 총괄하고 프로젝트 발표 진행",
-      "Flutter·Flask·MySQL·Google Cloud 기반 앱·서버·DB 구조 설계",
+      "5인 팀의 일정·역할·기능 통합을 총괄하고 시스템 구성과 프로젝트 발표 진행",
+      "Flutter·Node.js·AWS·MySQL 기반 앱·서버·DB 연결 구조 설계",
       "Agora API 기반 영상 통화와 사용자 매칭 기능 구현",
       "동시 매칭 충돌을 DB 트랜잭션(SELECT FOR UPDATE)으로 제어",
       "표정·음성 감정 분석 결과와 SKRRR 호감도 지수를 서비스 화면에 연동",
       "영상 통화 토큰 만료와 SDK 호환 문제를 Agora 연결 방식으로 전환해 해결",
     ],
     result: "표정 모델 정확도 88.8%, 음성 모델 정확도 86.4%를 기록하고 통화 종료 후 감정 결과를 시각화",
-    stack: ["Flutter", "Flask", "Python", "MySQL", "Agora API", "Google Cloud", "PyTorch"],
+    stack: ["Flutter", "Node.js", "Python", "MySQL", "Agora API", "AWS", "PyTorch"],
   },
   {
     no: "02",
@@ -255,6 +254,80 @@ export default function Home() {
                   </div>
                   <div className="result-box"><span>RESULT</span><strong>{project.result}</strong></div>
                   <div className="tech-list">{project.stack.map((tech) => <span key={tech}>{tech}</span>)}</div>
+                  {project.title === "SKRRR" && (
+                    <details className="project-disclosure">
+                      <summary>
+                        <span>PROJECT DETAIL</span>
+                        <strong>실전 프로젝트 상세</strong>
+                        <i className="fi fi-rr-angle-small-down" aria-hidden="true" />
+                      </summary>
+                      <div className="project-disclosure-body">
+                        <section className="skrrr-section">
+                          <div className="skrrr-heading">
+                            <span>MY ROLE</span>
+                            <h4>팀 운영부터 서비스 연결까지</h4>
+                          </div>
+                          <div className="skrrr-role-grid">
+                            <div><strong>팀장</strong><p>일정·역할 관리, 기능 통합과 발표 진행</p></div>
+                            <div><strong>Backend</strong><p>서버 연결과 MySQL 데이터 구조 설계</p></div>
+                            <div><strong>Video Call</strong><p>Agora 기반 영상통화 및 매칭 기능 구현</p></div>
+                            <div><strong>Architecture</strong><p>앱·서버·AI 분석 흐름 구성</p></div>
+                          </div>
+                        </section>
+
+                        <section className="skrrr-section">
+                          <div className="skrrr-heading">
+                            <span>ARCHITECTURE</span>
+                            <h4>서비스 구성</h4>
+                          </div>
+                          <div className="architecture-flow" aria-label="SKRRR 서비스 구성도">
+                            <div><small>CLIENT</small><strong>Flutter App</strong></div>
+                            <b aria-hidden="true">↔</b>
+                            <div><small>SERVER</small><strong>Node.js · AWS</strong></div>
+                            <b aria-hidden="true">↔</b>
+                            <div><small>DATA</small><strong>MySQL · AI Models</strong></div>
+                          </div>
+                          <div className="architecture-tools"><span>Agora API</span><span>PyTorch</span><span>Hugging Face</span><span>Whisper</span><span>Pyannote</span></div>
+                        </section>
+
+                        <section className="skrrr-section">
+                          <div className="skrrr-heading">
+                            <span>PROBLEM SOLVING</span>
+                            <h4>구현 과정에서 해결한 문제</h4>
+                          </div>
+                          <div className="problem-list">
+                            <article><strong>영상통화 연결</strong><p>Twilio·Vonage의 토큰과 SDK 호환 문제를 확인하고 Agora 연결 방식으로 전환</p></article>
+                            <article><strong>동시 매칭 충돌</strong><p>여러 사용자가 같은 대상과 연결되는 문제를 DB 트랜잭션과 SELECT FOR UPDATE로 제어</p></article>
+                            <article><strong>데이터 불균형</strong><p>감정별 데이터 편차를 역번역 기반 오버샘플링으로 보완</p></article>
+                            <article><strong>표정 분류 정확도</strong><p>단일 분류 구조를 랜드마크 추출과 TabNet 분류의 2단계 구조로 개선</p></article>
+                          </div>
+                        </section>
+
+                        <section className="skrrr-section">
+                          <div className="skrrr-heading">
+                            <span>MODEL RESULT</span>
+                            <h4>분석 성능</h4>
+                          </div>
+                          <div className="skrrr-metrics">
+                            <div><span>표정 정확도</span><strong>88.8%</strong><small>F1 83.3%</small></div>
+                            <div><span>음성 정확도</span><strong>86.4%</strong><small>F1 0.82</small></div>
+                          </div>
+                        </section>
+
+                        <section className="skrrr-section">
+                          <div className="skrrr-heading">
+                            <span>SCREENS</span>
+                            <h4>주요 화면</h4>
+                          </div>
+                          <div className="skrrr-gallery">
+                            <figure><img src={`${assetPath}/projects/skrrr/matching.png`} alt="SKRRR 사용자 매칭 화면" /><figcaption>사용자 매칭</figcaption></figure>
+                            <figure><img src={`${assetPath}/projects/skrrr/result.png`} alt="SKRRR 영상통화 분석 결과 화면" /><figcaption>통화 분석 결과</figcaption></figure>
+                            <figure><img src={`${assetPath}/projects/skrrr/history-analysis.png`} alt="SKRRR 이전 통화와 감정 분석 화면" /><figcaption>이전 통화·감정 분석</figcaption></figure>
+                          </div>
+                        </section>
+                      </div>
+                    </details>
+                  )}
                 </div>
               </article>
             ))}
