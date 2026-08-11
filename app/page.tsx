@@ -8,6 +8,9 @@ const skillGroups = [
       { name: "TypeScript", tone: "blue" },
       { name: "JavaScript", tone: "yellow" },
       { name: "Python", tone: "steel" },
+      { name: "Java", tone: "red" },
+      { name: "Dart", tone: "teal" },
+      { name: "Verilog", tone: "navy" },
     ],
   },
   {
@@ -15,6 +18,7 @@ const skillGroups = [
     iconClass: "fi fi-rr-browser",
     items: [
       { name: "React", tone: "navy" },
+      { name: "Flutter", tone: "teal" },
       { name: "HTML5 · CSS3", tone: "orange" },
       { name: "Redux", tone: "purple" },
       { name: "Zustand", tone: "brown" },
@@ -28,6 +32,7 @@ const skillGroups = [
     iconClass: "fi fi-rr-database",
     items: [
       { name: "Node.js", tone: "green" },
+      { name: "Flask", tone: "black" },
       { name: "MariaDB · MySQL", tone: "teal" },
       { name: "MinIO", tone: "red" },
     ],
@@ -37,6 +42,8 @@ const skillGroups = [
     iconClass: "fi fi-rr-brain-circuit",
     items: [
       { name: "PyTorch", tone: "orange" },
+      { name: "Hugging Face", tone: "yellow" },
+      { name: "Whisper", tone: "steel" },
       { name: "OpenCV", tone: "blue" },
       { name: "OCR", tone: "pink" },
       { name: "DICOM", tone: "navy" },
@@ -53,6 +60,9 @@ const skillGroups = [
       { name: "Apache", tone: "red" },
       { name: "Cloudflare Tunnel", tone: "orange" },
       { name: "Playwright", tone: "green" },
+      { name: "Google Cloud", tone: "blue" },
+      { name: "Agora API", tone: "teal" },
+      { name: "Raspberry Pi · Arduino", tone: "red" },
       { name: "Git · GitHub", tone: "navy" },
       { name: "Cursor · Claude · Codex", tone: "black" },
     ],
@@ -99,10 +109,29 @@ const projects = [
     stack: ["React", "TypeScript", "Cornerstone3D", "Zustand", "React Query", "MinIO", "MariaDB"],
   },
   {
-    no: "03",
+    no: "01",
+    type: "TEAM PROJECT",
+    title: "SKRRR",
+    period: "2024.03 — 2024.09 교육과정 내",
+    description:
+      "영상 통화 중 표정과 음성을 분석해 감정 변화, 호감도와 매너 점수를 제공하는 모바일 데이팅 서비스",
+    role: "Team Lead · Video Call · Backend · Infra",
+    points: [
+      "5인 팀의 일정·역할·기능 통합을 총괄하고 프로젝트 발표 진행",
+      "Flutter·Flask·MySQL·Google Cloud 기반 앱·서버·DB 구조 설계",
+      "Agora API 기반 영상 통화와 사용자 매칭 기능 구현",
+      "동시 매칭 충돌을 DB 트랜잭션(SELECT FOR UPDATE)으로 제어",
+      "표정·음성 감정 분석 결과와 SKRRR 호감도 지수를 서비스 화면에 연동",
+      "영상 통화 토큰 만료와 SDK 호환 문제를 Agora 연결 방식으로 전환해 해결",
+    ],
+    result: "표정 모델 정확도 88.8%, 음성 모델 정확도 86.4%를 기록하고 통화 종료 후 감정 결과를 시각화",
+    stack: ["Flutter", "Flask", "Python", "MySQL", "Agora API", "Google Cloud", "PyTorch"],
+  },
+  {
+    no: "02",
     type: "SIDE PROJECT",
     title: "BEBEU Work PWA",
-    period: "2026.06.01 ~",
+    period: "2026.06.01 — 진행 중",
     description:
       "아기용품 세탁 매장의 주문 접수, 작업 사진, 고객 공유, 근태와 게시 업무를 모바일에서 관리하는 현장 운영 도구",
     role: "Product · Full-stack · Operation",
@@ -114,7 +143,7 @@ const projects = [
       "단일 파일 프론트엔드를 기능별 모듈 구조로 분리하고 빌드 과정 구성",
       "로컬 서버와 Cloudflare Tunnel 기반의 매장 운영 환경 구축",
     ],
-    result: "실제 사용자 피드백을 반영하며 반복 업무를 하나의 모바일 PWA로 통합",
+    result: "사진 저장 효율을 80% 이상 높이고 반복 업무 처리 시간을 70% 이상 단축",
     stack: ["JavaScript", "Node.js", "PWA", "MariaDB", "Playwright", "Cloudflare Tunnel"],
   },
 ];
@@ -122,10 +151,10 @@ const projects = [
 const introItems = [
   { label: "이름", value: "방찬유", iconClass: "fi fi-rr-user" },
   { label: "생년월일", value: "99.09.07", iconClass: "fi fi-rr-calendar" },
-  { label: "위치", value: "광주광역시 북구", iconClass: "fi fi-rr-marker" },
+  { label: "위치", value: "광주광역시 광산구", iconClass: "fi fi-rr-marker" },
   { label: "연락처", value: "010-9148-6553", iconClass: "fi fi-rr-phone-call" },
   { label: "이메일", value: "cksdb0907@naver.com", iconClass: "fi fi-rr-envelope" },
-  { label: "학력", value: "전남대학교\n지능정보융합학과 석사과정 재학 중", iconClass: "fi fi-rr-graduation-cap" },
+  { label: "학력", value: "전남대학교 일반대학원 지능정보융합학과 석사과정\n조선대학교 전자공학과 졸업", iconClass: "fi fi-rr-graduation-cap" },
 ];
 
 export default function Home() {
@@ -209,10 +238,10 @@ export default function Home() {
         <div className="section-inner wide">
           <h2 className="section-title">PROJECTS</h2>
           <div className="project-stack single">
-            {projects.filter((project) => project.type === "SIDE PROJECT").map((project) => (
+            {projects.filter((project) => project.type !== "COMPANY PROJECT").map((project) => (
               <article className="project-card" key={project.title}>
                 <div className="project-aside">
-                  <span className="project-number">01</span>
+                  <span className="project-number">{project.no}</span>
                   <span className="project-type">{project.type}</span>
                   <p>{project.period}</p>
                 </div>
@@ -238,7 +267,7 @@ export default function Home() {
           <h2 className="section-title">CAREER</h2>
           <div className="career-layout">
             <div className="company-card">
-              <span>2024.10 — 2026.08</span>
+              <span>2024.10 — 재직 중</span>
               <h3>㈜인비즈</h3>
               <p>Full-stack Developer</p>
               <div className="company-tags"><span>Medical Imaging</span><span>Edge AI</span><span>Frontend</span></div>
@@ -247,12 +276,39 @@ export default function Home() {
               <article>
                 <time>2024.10 — 2025.08</time>
                 <h3>AI EchoCare 개발</h3>
-                <p>실시간 심초음파 영상 수집, AI·OCR 처리, 측정값 보정과 PACS 연동 개발</p>
+                <p>2인 개발 · 실시간 심초음파 영상 수집, AI·OCR 처리, 측정값 보정과 PACS 연동 개발</p>
               </article>
               <article>
                 <time>2025.11 — 2026.08</time>
                 <h3>Cloud PACS Annotation 개발</h3>
-                <p>DICOM Viewer, Measurement Tool, 익명화·저장 파이프라인 및 운영 환경 구축</p>
+                <p>2인 개발 · DICOM Viewer, Measurement Tool, 익명화·저장 파이프라인 및 운영 환경 구축</p>
+              </article>
+            </div>
+          </div>
+
+          <div className="career-history">
+            <div className="career-history-heading">
+              <span>EDUCATION &amp; TRAINING</span>
+              <h3>학력 및 개발 교육</h3>
+            </div>
+            <div className="history-grid">
+              <article>
+                <time>2025.03 — 재학 중</time>
+                <h3>전남대학교 일반대학원</h3>
+                <p>지능정보융합학과 석사과정 · 학점 4.43/4.5</p>
+                <strong>CT 팬텀 영상의 공간분해능 정량평가 연구 진행</strong>
+              </article>
+              <article>
+                <time>2018.03 — 2024.02</time>
+                <h3>조선대학교</h3>
+                <p>전자공학과 졸업 · 학점 3.6/4.5</p>
+                <strong>임베디드 시스템·캡스톤 프로젝트 팀장</strong>
+              </article>
+              <article>
+                <time>2024.03 — 2024.09</time>
+                <h3>빅데이터 융합 서비스 개발자과정</h3>
+                <p>스마트인재개발원 · 960시간</p>
+                <strong>3회 프로젝트 참여, 핵심·실전 프로젝트 팀장 및 우수상·서울 컨퍼런스 전시</strong>
               </article>
             </div>
           </div>

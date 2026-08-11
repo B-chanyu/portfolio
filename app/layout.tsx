@@ -9,10 +9,10 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Chanyu's Portfolio | Full-stack Developer",
-  description: "소개, 기술, 아카이브, 프로젝트와 커리어를 담은 프론트엔드 중심 풀스택 개발자 포트폴리오",
+  description: "의료영상, AI, 웹·앱 및 현장 운영 시스템 개발 경험을 담은 풀스택 개발자 포트폴리오",
   openGraph: {
     title: "Chanyu's Portfolio",
-    description: "Medical Imaging · DICOM/PACS · Edge AI",
+    description: "Medical Imaging · Full-stack · AI · PWA",
     url: siteUrl,
     type: "website",
     images: [{ url: `${basePath}/og.png`, width: 1733, height: 909, alt: "개발자 포트폴리오" }],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Chanyu's Portfolio",
-    description: "Medical Imaging · DICOM/PACS · Edge AI",
+    description: "Medical Imaging · Full-stack · AI · PWA",
     images: [`${basePath}/og.png`],
   },
 };

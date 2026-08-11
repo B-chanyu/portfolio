@@ -237,6 +237,16 @@ nav a:hover, nav a:focus-visible { color: var(--yellow); }
 .timeline h3 { margin: 9px 0 8px; font-size: 22px; }
 .timeline p { margin: 0; color: var(--muted); }
 
+.career-history { margin-top: 70px; padding-top: 42px; border-top: 1px solid var(--line); }
+.career-history-heading > span { color: var(--blue); font-size: 11px; font-weight: 900; letter-spacing: .14em; }
+.career-history-heading h3 { margin: 10px 0 28px; font-size: clamp(28px, 4vw, 38px); letter-spacing: -.035em; }
+.history-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.history-grid article { min-height: 220px; padding: 26px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 8px 24px rgba(24, 31, 40, .06); }
+.history-grid time { color: var(--blue); font-size: 11px; font-weight: 900; }
+.history-grid h3 { margin: 15px 0 8px; font-size: 20px; line-height: 1.35; }
+.history-grid p { margin: 0; color: var(--muted); font-size: 13px; }
+.history-grid strong { margin-top: auto; padding-top: 24px; color: #3a4652; font-size: 13px; line-height: 1.55; }
+
 .research-disclosure { margin-top: 78px; }
 .research-disclosure > summary { padding: 30px 34px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 18px; border-radius: 16px; color: #fff; background: var(--navy); cursor: pointer; list-style: none; box-shadow: 0 12px 30px rgba(24, 31, 40, .12); }
 .research-disclosure > summary::-webkit-details-marker { display: none; }
@@ -297,6 +307,7 @@ footer > a { color: var(--yellow); font-weight: 900; }
   .project-card { grid-template-columns: 165px 1fr; }
   .project-aside, .project-body { padding: 30px; }
   .career-layout, .research { grid-template-columns: 1fr; }
+  .history-grid { grid-template-columns: 1fr; }
   .research-gallery { grid-template-columns: 1fr; }
   .research-result-visuals { grid-template-columns: 1fr 1fr; }
 }
